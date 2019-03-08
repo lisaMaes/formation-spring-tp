@@ -14,6 +14,11 @@ public class Captor {
      */
     private String name;
 
+    /**
+     * Captor power source
+     */
+    private PowerSource powerSource;
+
     @Deprecated
     public Captor() {
         // Use for serializer or deserializer
@@ -23,8 +28,10 @@ public class Captor {
      * Constructor to use with required property
      * @param name
      */
-    public Captor(String name) {
+    public Captor(String name, PowerSource powerSource) {
+
         this.name = name;
+        this.powerSource = powerSource;
     }
 
     public String getId() {
@@ -41,6 +48,15 @@ public class Captor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public PowerSource getPowerSource() {
+        return powerSource;
+    }
+
+    public void setPowerSource(PowerSource powerSource) {
+        this.powerSource = powerSource;
     }
 
     @Override

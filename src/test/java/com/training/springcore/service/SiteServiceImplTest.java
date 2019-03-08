@@ -14,6 +14,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Set;
 
+import static com.training.springcore.model.PowerSource.FIXED;
+
 public class SiteServiceImplTest {
 
     @Mock
@@ -43,7 +45,7 @@ public class SiteServiceImplTest {
     public void findById(){
         // Initialisation
         String siteId = "siteId";
-        Set<Captor> expectedCpators = Collections.singleton(new Captor("Capteur A"));
+        Set<Captor> expectedCpators = Collections.singleton(new Captor("Capteur A", FIXED));
         Mockito.when(captorService.findBySite(siteId)).thenReturn(expectedCpators);
 
         // Appel du SUT
