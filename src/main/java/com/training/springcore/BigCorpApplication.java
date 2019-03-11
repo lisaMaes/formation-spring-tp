@@ -2,14 +2,19 @@ package com.training.springcore;
 
 import com.training.springcore.config.BigCorpApplicationConfig;
 import com.training.springcore.model.ApplicationInfo;
+import com.training.springcore.service.SiteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class BigCorpApplication {
 
+    @Autowired
+
     public static void main (String[] args){
         BigCorpApplication application = new BigCorpApplication();
         application.run();
+
     }
 
     public void run(){
@@ -20,6 +25,8 @@ public class BigCorpApplication {
                         + applicationInfo.getVersion());
          System.out.println("plus d'informations sur " + applicationInfo.getWebSiteUrl());
          System.out.println("==========================================================");
+        SiteService siteService = context.getBean(SiteService.class);
+        System.out.println(siteService.findById("siteA"));
 
     }
 }
