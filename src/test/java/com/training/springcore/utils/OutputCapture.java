@@ -19,6 +19,7 @@ import static org.hamcrest.Matchers.allOf;
  * JUnit {@code @Rule} to capture output from System.out and System.err.
  * This class is a Spring Boot class. We don't use this module i the first part of the training
  */
+
 public class OutputCapture implements TestRule {
 
     private CaptureOutputStream captureOut;

@@ -6,6 +6,10 @@ import com.training.springcore.model.MeasureStep;
 import com.training.springcore.model.PowerSource;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.Instant;
 import java.util.List;
@@ -13,9 +17,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {MeasureServiceConfigurationTest.class})
 
 public class RealMeasureServiceTest {
 
+    @Autowired
     private RealMeasureService service;
     /**
      * Captor used in tests
@@ -30,10 +37,6 @@ public class RealMeasureServiceTest {
      */
     Instant end = start.plusSeconds(60 * 60 * 24);
 
-    @Before
-    public void init(){
-        service = new RealMeasureService();
-    }
     @Test
     public void readMeasuresThrowsExceptionWhenArgIsNull(){
         assertThatThrownBy(() -> service.readMeasures(null, start, end,
